@@ -24,8 +24,8 @@ def test_init(category_obj):
 
 
 def test_all_categories(category_obj):
-    assert category_obj.all_categories == 1
+    assert category_obj.count_categories == 1
 
 
 def test_all_products(category_obj):
-    assert category_obj.all_products == 4
+    assert category_obj.count_products == 4

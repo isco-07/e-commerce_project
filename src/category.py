@@ -1,22 +1,18 @@
 class Category:
-    name: str
-    description: str
-    products: list
+    __count_categories = 0
+    __count_products = 0
 
-    __all_categories = 0
-    __all_products = 0
-
-    def __init__(self, name, description, products):
+    def __init__(self, name: str, description: str, products: list) -> None:
         self.name = name
         self.description = description
         self.products = products
-        self.__all_categories += 1
-        self.__all_products += len(products)
+        self.__count_categories += 1
+        self.__count_products += len(set(products))
 
     @property
-    def all_categories(self):
-        return self.__all_categories
+    def count_categories(self) -> int:
+        return self.__count_categories
 
     @property
-    def all_products(self):
-        return self.__all_products
+    def count_products(self) -> int:
+        return self.__count_products
