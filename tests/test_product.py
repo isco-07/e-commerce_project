@@ -20,12 +20,11 @@ def test_price(product_obj):
     assert product_obj.price == 62000.00
 
 
-def test_create_product(product_obj):
-    assert len(product_obj.products) == 1
+def test_create_product():
+    assert len(Product.products) == 0
     Product.create_product("iphone 11", "for calls", 59990.00, 5)
-    assert len(product_obj.products) == 1
+    assert len(Product.products) == 1
     Product.create_product("iphone 12", "for games", 59990.00, 5)
-    assert len(product_obj.products) == 2
+    assert len(Product.products) == 2
     Product.create_product("iphone 11", "for calls", 59990.00, 5)
-    assert len(product_obj.products) == 2
-
+    assert len(Product.products) == 2
