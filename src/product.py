@@ -16,9 +16,9 @@ class Product:
     ) -> None:
         for product in Product.products:
             if name == product.name:
+                product.quantity += quantity
                 if price > product.price:
                     product.price = price
-                    product.quantity += quantity
                 break
         else:
             Product(name, description, price, quantity)
