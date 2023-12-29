@@ -28,7 +28,12 @@ if __name__ == '__main__':
             print(f"Цена товара осталась прежней либо увеличилась: {new_price}\n")
 
     for category in categories_obj:
-        print(f'{category.name}:')
-        print(category.products, '\n')
-
-
+        print(category)
+    print()
+    for product in products_obj:
+        print(product)
+    print()
+    if len(products_obj) > 1:
+        print(
+            f"Общая сумма последних двух товаров с учетом количества "
+            f"каждого товара: {products_obj[-2] + products_obj[-1]}")
