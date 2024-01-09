@@ -1,5 +1,5 @@
 class Product:
-    products = []
+    products: list = []
 
     def __init__(
         self, name: str, description: str, price: float, quantity: int
@@ -9,6 +9,12 @@ class Product:
         self.__price = price
         self.quantity = quantity
         self.products.append(self)
+
+    def __str__(self) -> str:
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other) -> float:
+        return self.__price * self.quantity + other.__price * other.quantity
 
     @staticmethod
     def create_product(
@@ -30,7 +36,7 @@ class Product:
     @price.setter
     def price(self, new_price: float) -> None:
         if new_price < self.__price:
-            answer = input(f"Согласны снизить цену? y (значит yes) или n (значит no): ")
+            answer = input("Согласны снизить цену? y (значит yes) или n (значит no): ")
             if answer.lower() == "y":
                 self.__price = new_price
         else:

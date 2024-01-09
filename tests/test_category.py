@@ -43,3 +43,11 @@ def test_products(category_obj):
         "iphone 10, 35000.0 руб. Остаток: 4 шт.\n"
         "iphone 11, 55000.0 руб. Остаток: 14 шт."
     )
+
+
+def test_len(category_obj):
+    assert len(category_obj) == 18
+
+
+def test_str(category_obj):
+    assert str(category_obj) == "Phones, количество продуктов: 18 шт."

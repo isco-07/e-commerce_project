@@ -1,6 +1,8 @@
 from src.category import Category
 from src.product import Product
 from src.views import read_json
+from src.smartphone import Smartphone
+from src.lawn_grass import LawnGrass
 
 if __name__ == '__main__':
     categories_obj = []
@@ -28,7 +30,42 @@ if __name__ == '__main__':
             print(f"Цена товара осталась прежней либо увеличилась: {new_price}\n")
 
     for category in categories_obj:
-        print(f'{category.name}:')
-        print(category.products, '\n')
+        print(category)
+    print()
+    for product in products_obj:
+        print(product)
+    print()
+    if len(products_obj) > 1:
+        print(
+            f"Общая сумма последних двух товаров с учетом количества "
+            f"каждого товара: {products_obj[-2] + products_obj[-1]}")
 
+    smartphone1 = Smartphone('HONOR 70', '5G 8/128 ГБ RU, 2 (nano SIM), полночный черный',
+                             29156, 4, '8gb', '70', 128, 'black')
+    smartphone2 = Smartphone('HONOR 90', '5G 8/128 ГБ RU, 2 (nano SIM), полночный черный',
+                             29156, 4, '8gb', '70', 128, 'black')
+    print(len(Product.products))
+    Smartphone.create_product(smartphone1, 'HONOR 70', '5G 8/128 ГБ RU, 2 (nano SIM), полночный черный',
+                              29156, 4)
+    print(len(Smartphone.products))
+    print(len(Product.products))
 
+    grass1 = LawnGrass(
+        "Газон",
+        "Зеленый газон ГАЗОНCITY, 0.5 кг",
+        198,
+        42,
+        "Россия",
+        "25 дней",
+        "зеленый",
+    )
+    print(len(LawnGrass.products))
+    LawnGrass.create_product(grass1,
+                             "Газон",
+                             "Зеленый газон ГАЗОНCITY, 0.5 кг",
+                             198,
+                             42)
+    print(len(Product.products))
+    print(len(LawnGrass.products))
+    print(smartphone1 + smartphone2)
+    assert smartphone1 + grass1 == TypeError("Разные товары суммировать нельзя")
