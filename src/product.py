@@ -1,4 +1,8 @@
-class Product:
+from src.mixin import Mixin
+from src.shop import Shop
+
+
+class Product(Shop, Mixin):
     products: list = []
 
     def __init__(
@@ -9,6 +13,12 @@ class Product:
         self.__price = price
         self.quantity = quantity
         self.products.append(self)
+
+    def __repr__(self):
+        return (
+            super().__repr__()
+            + f"({self.name}, {self.description}, {self.price}, {self.quantity})"
+        )
 
     def __str__(self) -> str:
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."

@@ -1,7 +1,8 @@
 from src.product import Product
+from src.shop import Shop
 
 
-class Smartphone(Product):
+class Smartphone(Product, Shop):
     products = []
 
     def __init__(
@@ -21,6 +22,11 @@ class Smartphone(Product):
         self.memory = memory
         self.color = color
         # Smartphone.products.append(self)
+
+    def __repr__(self):
+        return (super().__repr__())[
+            :-1
+        ] + f", {self.cpu}, {self.model}, {self.memory}, {self.color})"
 
     def __add__(self, other):
         if isinstance(other, self.__class__):
