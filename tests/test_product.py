@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 
@@ -35,3 +37,8 @@ def test_add():
     product_obj1 = Product("iphone 11", "for calls", 59990.00, 5)
     product_obj2 = Product("iphone 12", "for games", 59990.00, 5)
     assert product_obj1 + product_obj2 == 599900.0
+
+
+def test_init_raise():
+    with pytest.raises(ValueError):
+        Product("Some", "something", 0.0, 0)

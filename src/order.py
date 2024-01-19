@@ -1,5 +1,5 @@
-from src.option import Option
 from src.new_object_error import NewObjectError
+from src.option import Option
 
 
 class Order(Option):

@@ -51,3 +51,7 @@ def test_len(category_obj):
 
 def test_str(category_obj):
     assert str(category_obj) == "Phones, количество продуктов: 18 шт."
+
+
+def test_average_price(category_obj):
+    assert category_obj.average_price() == 50555.56
