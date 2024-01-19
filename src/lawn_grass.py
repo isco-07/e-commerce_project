@@ -1,7 +1,8 @@
 from src.product import Product
+from src.shop import Shop
 
 
-class LawnGrass(Product):
+class LawnGrass(Product, Shop):
     products = []
 
     def __init__(
@@ -18,6 +19,11 @@ class LawnGrass(Product):
         self.country_of_origin = country_of_origin
         self.germin_period = germin_period
         self.color = color
+
+    def __repr__(self):
+        return (super().__repr__())[
+            :-1
+        ] + f", {self.country_of_origin}, {self.germin_period}, {self.color})"
 
     def __add__(self, other):
         if isinstance(other, self.__class__):

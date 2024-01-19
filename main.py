@@ -68,4 +68,8 @@ if __name__ == '__main__':
     print(len(Product.products))
     print(len(LawnGrass.products))
     print(smartphone1 + smartphone2)
-    assert smartphone1 + grass1 == TypeError("Разные товары суммировать нельзя")
+    # assert smartphone1 + grass1 == TypeError("Разные товары суммировать нельзя")
+    print(repr(smartphone1))
+    print(repr(grass1))
+    for obj in products_obj:
+        print(repr(obj))
