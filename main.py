@@ -3,6 +3,7 @@ from src.product import Product
 from src.views import read_json
 from src.smartphone import Smartphone
 from src.lawn_grass import LawnGrass
+from src.order import Order
 
 if __name__ == '__main__':
     categories_obj = []
@@ -73,3 +74,6 @@ if __name__ == '__main__':
     print(repr(grass1))
     for obj in products_obj:
         print(repr(obj))
+    for category in categories_obj:
+        print(f"средний ценник категории '{category.name}': {category.average_price()}")
+    order1 = Order("some", 3, 123.00)

@@ -1,8 +1,7 @@
 from src.product import Product
-from src.shop import Shop
 
 
-class LawnGrass(Product, Shop):
+class LawnGrass(Product):
     products = []
 
     def __init__(
